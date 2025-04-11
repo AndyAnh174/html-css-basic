@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Bài 1: Thẻ tiêu đề và đoạn văn có định dạng",
+    "description": "Tạo một trang đơn giản với tiêu đề và đoạn văn có định dạng CSS",
+    "requirements": [
+      "Tạo một tiêu đề h1 với nội dung 'Xin chào thế giới'",
+      "Đặt màu chữ cho h1 là #3366cc",
+      "Tạo một đoạn văn p với nội dung tự chọn",
+      "Đặt font-family cho đoạn văn là Arial, sans-serif",
+      "Đặt font-size cho đoạn văn là 18px"
+    ],
+    "initialCode": "<style>\n  /* Viết CSS của bạn tại đây */\n  \n</style>\n\n<!-- Viết HTML của bạn tại đây -->\n",
+    "solution": "<style>\n  h1 {\n    color: #3366cc;\n  }\n  \n  p {\n    font-family: Arial, sans-serif;\n    font-size: 18px;\n  }\n</style>\n\n<h1>Xin chào thế giới</h1>\n<p>Đây là đoạn văn bản mẫu với font Arial và kích thước 18px.</p>",
+    "checkFunction": "function checkSolution(code) {\n  const hasH1 = code.includes('<h1') && code.includes('</h1>');\n  const hasH1Content = code.includes('Xin chào thế giới');\n  const hasH1Color = code.includes('color') && code.includes('#3366cc');\n  const hasP = code.includes('<p') && code.includes('</p>');\n  const hasPFont = code.includes('font-family') && code.includes('Arial');\n  const hasPFontSize = code.includes('font-size') && code.includes('18px');\n  \n  const results = [\n    { requirement: 'Tiêu đề h1', passed: hasH1 },\n    { requirement: 'Màu chữ h1 là #3366cc', passed: hasH1Color },\n    { requirement: 'Đoạn văn p', passed: hasP },\n    { requirement: 'Font đoạn văn là Arial', passed: hasPFont },\n    { requirement: 'Cỡ chữ đoạn văn là 18px', passed: hasPFontSize }\n  ];\n  \n  const score = results.filter(item => item.passed).length;\n  const maxScore = results.length;\n  \n  return { results, score, maxScore };\n}"
+  },
+  {
+    "id": 2,
+    "title": "Bài 2: Danh sách có định dạng",
+    "description": "Tạo một danh sách có định dạng CSS",
+    "requirements": [
+      "Tạo một tiêu đề h2 với nội dung 'Danh sách món ăn yêu thích'",
+      "Tạo một danh sách không thứ tự ul với ít nhất 3 mục li",
+      "Đặt màu nền cho danh sách ul là #f5f5f5",
+      "Đặt padding cho danh sách là 15px",
+      "Đặt màu chữ cho các mục li là #3366cc"
+    ],
+    "initialCode": "<style>\n  /* Viết CSS của bạn tại đây */\n  \n</style>\n\n<!-- Viết HTML của bạn tại đây -->\n",
+    "solution": "<style>\n  h2 {\n    color: #333;\n  }\n  \n  ul {\n    background-color: #f5f5f5;\n    padding: 15px;\n  }\n  \n  li {\n    color: #3366cc;\n    margin-bottom: 8px;\n  }\n</style>\n\n<h2>Danh sách món ăn yêu thích</h2>\n<ul>\n  <li>Phở bò</li>\n  <li>Bánh mì</li>\n  <li>Cơm tấm</li>\n</ul>",
+    "checkFunction": "function checkSolution(code) {\n  const hasH2 = code.includes('<h2') && code.includes('</h2>');\n  const hasH2Content = code.includes('Danh sách món ăn yêu thích');\n  const hasUl = code.includes('<ul') && code.includes('</ul>');\n  const hasLi = (code.match(/<li/g) || []).length >= 3;\n  const hasUlBg = code.includes('background-color') && code.includes('#f5f5f5');\n  const hasUlPadding = code.includes('padding') && code.includes('15px');\n  const hasLiColor = code.includes('color') && code.includes('#3366cc');\n  \n  const results = [\n    { requirement: 'Tiêu đề h2', passed: hasH2 && hasH2Content },\n    { requirement: 'Danh sách ul với 3 mục li', passed: hasUl && hasLi },\n    { requirement: 'Màu nền danh sách là #f5f5f5', passed: hasUlBg },\n    { requirement: 'Padding danh sách là 15px', passed: hasUlPadding },\n    { requirement: 'Màu chữ mục là #3366cc', passed: hasLiColor }\n  ];\n  \n  const score = results.filter(item => item.passed).length;\n  const maxScore = results.length;\n  \n  return { results, score, maxScore };\n}"
+  },
+  {
+    "id": 3,
+    "title": "Bài 3: Thẻ hình ảnh có định dạng",
+    "description": "Tạo và định dạng hình ảnh với viền và chú thích",
+    "requirements": [
+      "Tạo một thẻ hình ảnh img với thuộc tính src và alt",
+      "Đặt chiều rộng cho ảnh là 300px",
+      "Tạo viền cho ảnh có màu #3366cc và độ dày 2px",
+      "Tạo padding 10px xung quanh ảnh",
+      "Thêm chú thích cho ảnh bằng thẻ p bên dưới ảnh"
+    ],
+    "initialCode": "<style>\n  /* Viết CSS của bạn tại đây */\n  \n</style>\n\n<!-- Viết HTML của bạn tại đây -->\n",
+    "solution": "<style>\n  img {\n    width: 300px;\n    border: 2px solid #3366cc;\n    padding: 10px;\n  }\n  \n  p {\n    font-style: italic;\n    color: #666;\n  }\n</style>\n\n<img src=\"https://picsum.photos/300/200\" alt=\"Hình ảnh mẫu\">\n<p>Đây là chú thích cho hình ảnh</p>",
+    "checkFunction": "function checkSolution(code) {\n  const hasImg = code.includes('<img');\n  const hasSrcAlt = code.includes('src=') && code.includes('alt=');\n  const hasImgWidth = code.includes('width') && code.includes('300px');\n  const hasImgBorder = code.includes('border') && code.includes('#3366cc') && code.includes('2px');\n  const hasImgPadding = code.includes('padding') && code.includes('10px');\n  const hasCaption = code.includes('<p') && code.includes('</p>');\n  \n  const results = [\n    { requirement: 'Thẻ img với src và alt', passed: hasImg && hasSrcAlt },\n    { requirement: 'Chiều rộng ảnh 300px', passed: hasImgWidth },\n    { requirement: 'Viền ảnh màu #3366cc 2px', passed: hasImgBorder },\n    { requirement: 'Padding ảnh 10px', passed: hasImgPadding },\n    { requirement: 'Chú thích bằng thẻ p', passed: hasCaption }\n  ];\n  \n  const score = results.filter(item => item.passed).length;\n  const maxScore = results.length;\n  \n  return { results, score, maxScore };\n}"
+  },
+  {
+    "id": 4,
+    "title": "Bài 4: Nút bấm có hiệu ứng hover",
+    "description": "Tạo các nút bấm đổi màu khi di chuột qua",
+    "requirements": [
+      "Tạo một tiêu đề h2 với nội dung 'Các nút bấm'",
+      "Tạo ba nút bấm với thẻ button có nội dung khác nhau",
+      "Đặt màu nền cho các nút là #3366cc và màu chữ là trắng",
+      "Tạo padding 10px và bo tròn viền 5px cho các nút",
+      "Khi hover qua nút, đổi màu nền thành #254e9c"
+    ],
+    "initialCode": "<style>\n  /* Viết CSS của bạn tại đây */\n  \n</style>\n\n<!-- Viết HTML của bạn tại đây -->\n",
+    "solution": "<style>\n  h2 {\n    color: #333;\n  }\n  \n  button {\n    background-color: #3366cc;\n    color: white;\n    padding: 10px 15px;\n    border: none;\n    border-radius: 5px;\n    margin-right: 10px;\n    cursor: pointer;\n  }\n  \n  button:hover {\n    background-color: #254e9c;\n  }\n</style>\n\n<h2>Các nút bấm</h2>\n<button>Nút thứ nhất</button>\n<button>Nút thứ hai</button>\n<button>Nút thứ ba</button>",
+    "checkFunction": "function checkSolution(code) {\n  const hasH2 = code.includes('<h2') && code.includes('Các nút bấm');\n  const hasButtons = (code.match(/<button/g) || []).length >= 3;\n  const hasButtonBg = code.includes('background-color') && code.includes('#3366cc');\n  const hasButtonColor = code.includes('color') && code.includes('white');\n  const hasButtonPadding = code.includes('padding') && code.includes('10px');\n  const hasButtonRadius = code.includes('border-radius') && code.includes('5px');\n  const hasButtonHover = code.includes(':hover') && code.includes('#254e9c');\n  \n  const results = [\n    { requirement: 'Tiêu đề h2', passed: hasH2 },\n    { requirement: 'Ba nút button', passed: hasButtons },\n    { requirement: 'Màu nền nút #3366cc, chữ trắng', passed: hasButtonBg && hasButtonColor },\n    { requirement: 'Padding 10px, bo tròn 5px', passed: hasButtonPadding && hasButtonRadius },\n    { requirement: 'Đổi màu khi hover', passed: hasButtonHover }\n  ];\n  \n  const score = results.filter(item => item.passed).length;\n  const maxScore = results.length;\n  \n  return { results, score, maxScore };\n}"
+  },
+  {
+    "id": 5,
+    "title": "Bài 5: Thẻ div với bố cục căn giữa",
+    "description": "Tạo một thẻ div có nội dung căn giữa và có định dạng",
+    "requirements": [
+      "Tạo một thẻ div với class 'container'",
+      "Đặt chiều rộng tối đa cho container là 500px",
+      "Đặt margin tự động để căn giữa container",
+      "Tạo một tiêu đề h3 và một đoạn văn bản bên trong container",
+      "Tạo viền, đổ bóng và bo tròn góc cho container"
+    ],
+    "initialCode": "<style>\n  /* Viết CSS của bạn tại đây */\n  \n</style>\n\n<!-- Viết HTML của bạn tại đây -->\n",
+    "solution": "<style>\n  .container {\n    max-width: 500px;\n    margin: 0 auto;\n    padding: 20px;\n    border: 1px solid #ddd;\n    border-radius: 8px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    text-align: center;\n  }\n  \n  h3 {\n    color: #3366cc;\n  }\n  \n  p {\n    color: #333;\n    line-height: 1.6;\n  }\n</style>\n\n<div class=\"container\">\n  <h3>Tiêu đề container</h3>\n  <p>Đây là đoạn văn bản bên trong container. Container này được căn giữa trang và có định dạng với viền, đổ bóng và bo tròn góc.</p>\n</div>",
+    "checkFunction": "function checkSolution(code) {\n  const hasContainer = code.includes('container');\n  const hasMaxWidth = code.includes('max-width') && code.includes('500px');\n  const hasMarginAuto = code.includes('margin') && (code.includes('auto') || code.includes('0 auto'));\n  const hasH3AndP = code.includes('<h3') && code.includes('</h3>') && code.includes('<p') && code.includes('</p>');\n  const hasBorderAndShadow = (\n    code.includes('border') && \n    code.includes('border-radius') && \n    (code.includes('box-shadow') || code.includes('shadow'))\n  );\n  \n  const results = [\n    { requirement: 'Thẻ div với class container', passed: hasContainer },\n    { requirement: 'Chiều rộng tối đa 500px', passed: hasMaxWidth },\n    { requirement: 'Margin tự động để căn giữa', passed: hasMarginAuto },\n    { requirement: 'Có h3 và p bên trong', passed: hasH3AndP },\n    { requirement: 'Có viền, bóng và bo góc', passed: hasBorderAndShadow }\n  ];\n  \n  const score = results.filter(item => item.passed).length;\n  const maxScore = results.length;\n  \n  return { results, score, maxScore };\n}"
+  }
+] 
